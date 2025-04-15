@@ -47,3 +47,10 @@ async def predict(file: UploadFile = File(...)):
         "class": predicted_class,
         "probabilities": {class_names[i]: float(predictions[0][i]) for i in range(3)}
     }
+
+
+PORT = int(os.getenv("PORT", 8000))  # Берет порт из переменной окружения PORT или использует 8000 по умолчанию
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
