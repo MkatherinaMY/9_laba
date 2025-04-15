@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 # Загрузка модели
-model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'model.h5')
+model_path ='model.h5'
 model = tf.keras.models.load_model(model_path)
 class_names = ['cat', 'dog', 'panda']
 
