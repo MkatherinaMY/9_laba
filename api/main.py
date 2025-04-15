@@ -49,7 +49,7 @@ async def predict(file: UploadFile = File(...)):
     }
 
 
-PORT = int(os.getenv("PORT", 8000))  # Берет порт из переменной окружения PORT или использует 8000 по умолчанию
+PORT = int(os.getenv("PORT", 10000))  # Берет порт из переменной окружения PORT или использует 8000 по умолчанию
 print(f"Using PORT: {PORT}")
 if __name__ == "__main__":
     import uvicorn
