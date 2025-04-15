@@ -17,8 +17,16 @@ app.add_middleware(
 )
 
 # Загрузка модели
-model_path ='model.h5'
-model = tf.keras.models.load_model(model_path)
+model_path = os.path.join(os.path.dirname(__file__), "model.h5")
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Файл модели не найден: {model_path}")
+
+try:
+    model = tf.keras.models.load_model(model_path)
+    print("Модель успешно загружена!")
+except Exception as e:
+    print(f"Ошибка загрузки модели: {e}")
+    raise
 class_names = ['cat', 'dog', 'panda']
 
 
@@ -49,7 +57,7 @@ async def predict(file: UploadFile = File(...)):
     }
 
 
-PORT = int(os.getenv("PORT", 10000))  # Берет порт из переменной окружения PORT или использует 8000 по умолчанию
+PORT = int(os.getenv("PORT", 8000))  # Берет порт из переменной окружения PORT или использует 8000 по умолчанию
 print(f"Using PORT: {PORT}")
 if __name__ == "__main__":
     import uvicorn
