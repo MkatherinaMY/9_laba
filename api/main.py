@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 import io
+import os
 
 app = FastAPI()
 
@@ -16,8 +17,9 @@ app.add_middleware(
 )
 
 # Загрузка модели
-model = tf.keras.models.load_model('best_model.keras')
-class_names = ['cat', 'dog', 'panda']  # Замените на ваши классы
+model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'model.h5')
+model = tf.keras.models.load_model(model_path)
+class_names = ['cat', 'dog', 'panda']
 
 
 # Предобработка изображения

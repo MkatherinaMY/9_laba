@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 
 # Настройки
-API_URL = "https://your-api-url.com/predict/"
+API_URL = "https://9vg3kykvg2jkzl8cbmxbqn.streamlit.app/"
 CLASS_NAMES = ['cat', 'dog', 'panda']
 
 # Интерфейс
