@@ -64,7 +64,7 @@ class_names = ['cat', 'dog', 'panda']
 def load_model():
     global model
     if model is None:
-        model_path = os.path.join(os.path.dirname(__file__), "model.keras")
+        model_path = "model.keras"
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Модель не найдена: {model_path}")
 
