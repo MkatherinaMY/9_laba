@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 
 # Настройки
-API_URL = "https://api.render.com/deploy/srv-cvvb7o8gjchc73eavnhg?key=7VQlgeu1cEA"
+API_URL = "https://nine-laba.onrender.com/predict/"
 CLASS_NAMES = ['cat', 'dog', 'panda']
 
 # Интерфейс

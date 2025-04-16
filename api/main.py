@@ -60,12 +60,17 @@ async def predict(file: UploadFile = File(...)):
 model = None
 class_names = ['cat', 'dog', 'panda']
 
+
 def load_model():
     global model
     if model is None:
-        model_path = os.path.join(os.path.dirname(__file__), "model.h5")
+        model_path = os.path.join(os.path.dirname(__file__), "model")
         if not os.path.exists(model_path):
-            raise FileNotFoundError(f"Файл модели не найден: {model_path}")
+            raise FileNotFoundError(f"Модель не найдена: {model_path}")
+
+        # Для отладки
+        print("Содержимое папки модели:", os.listdir(model_path))
+
         model = tf.keras.models.load_model(model_path)
         print("Модель успешно загружена!")
     return model
